@@ -1,11 +1,10 @@
 import Cards from './Cards.jsx'
-import './App.css'
 
 function App() {
   return (
-    <>
+    <div className='mainCont'>
     <Cards></Cards>
-    </>
+    </div>
   )
 }
 
