@@ -3,13 +3,15 @@ import { useState, useEffect} from 'react'
 import "./index.css"
 import { shuffleCards, duplicateCards, compareCards } from './logic';
 
+
 const Cards = () => {
+
 const [result, setResult] = useState([]);
 const [poke, setPoke] = useState([]);
 const [load, setLoad] = useState(false);
+
 const arr = [];
 let finalArr = poke;
-
 let URL = `https://pokeapi.co/api/v2/pokemon?limit=6&offset=${Math.floor(Math.random()* 500)}` 
 
 // CÓMO HACER QUE LA PAGINA ESPERE AL FETCH PARA CARGAR?????????!!!?!?!??
@@ -22,10 +24,8 @@ useEffect(() => {
             .then((response) => response.json())
             .then((allData) => arr.push(allData))
             setPoke(arr)
-        })
-        
+        })  
     ))
-    
 }, []);
 
 const loadCards = () => {
@@ -37,9 +37,9 @@ const loadCards = () => {
 }
     return (
         <>
-        {load ? "" : <button onClick={loadCards}>Jugar</button>}
+        {!load ? <button onClick={loadCards} className="gameMark" id="startButton">Jugar</button> : 
         <div className="cardsCont">
-        {load ? poke.map((item, index) => (
+        { poke.map((item, index) => (
             <div className='mainCard'>
             <div
             ind={index} 
@@ -47,20 +47,16 @@ const loadCards = () => {
             className="hidden front card"> 
                     <img className="frontPic"src={item.sprites.front_default}/>
                     <p border="secondary">{item.name}</p>
-                
             </div>
             <div 
             ind={index} 
             key={index}
-        className="hidden back card"> 
-            
-                <img className="backPic" src="https://e0.pxfuel.com/wallpapers/565/885/desktop-wallpaper-pixel-pokeball-cute-and-pink-minimal-pokeball.jpg"/>
-                
+            className="hidden back card"> 
+                <img className="back" src='https://e0.pxfuel.com/wallpapers/565/885/desktop-wallpaper-pixel-pokeball-cute-and-pink-minimal-pokeball.jpg'/>
         </div>
         </div>
-        )) 
-        : ""}
-        </div>
+        )) }
+        </div> }
         </>
     )
 }

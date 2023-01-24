@@ -1,55 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=PT+Sans+Narrow&display=swap');
+
+:root {
+  --titleFont: 'Lilita One', cursive;
+  --lightColor: rgba(255, 255, 255, 0.85);
+  --highlightColor: rgba(255, 180, 190, 0.6);
+  --textColor: #585858;
+}
 *{
   padding: 0;
-   margin: 0;
+  margin: 0;
+  font-family: var(--titleFont);
 }
 body{
   background-image: url(https://i.pinimg.com/originals/ca/e0/1a/cae01ab5cce960db0d7819cc96e97ce8.png);
-  background-size: cover;
-}
-img {
-  width: 200px;
-  height: 300px;
-  object-fit: cover;
-}
-button{
-  width: 20%;
-  height: 10%;
-  background-color: white(53, 118, 96);
-  border: 1px solid black ;
-  align-self: center;
-
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+  
 }
 .mainCont {
   display:flex;
   flex-direction: column;
-  width: 80%;
+  width: 100%;
   height: 100vh;
-  justify-content: center;
   align-items: center;
+}
+#header{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 162px;
+  font-family: var(--titleFont) ;
+  background: var(--lightColor);
+}
+#header h1 {
+  font-size: calc(40px + 1vw);
+  text-align: center;
+  padding: 3%;
+  color: var(--textColor);
+}
+.gameMark{
+  background: var(--highlightColor);
+  border-radius: 5px;
+  width: 20%;
+  height: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--textColor);
+  font-size: calc(20px + 1vw);
+}
+#startButton{
+  height: 15%;
+  width: 25%;
+  font-size: calc(40px + 1vw);
+  background: var(--lightColor);
+  color: var(--textColor);
+  border: 1px solid white;
+  margin-top: 15%;
+}
+img{
+  height: 100%;
+  width: 100%;
 }
 .cardsCont {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-  width: 100%;
-  height: 100%;
+  width: 90%;
+  height: 71%;
   padding: 1rem;
+  background: var(--lightColor);
+  margin-top: 1%;
+  justify-items: center;
 }
 .mainCard {
-  width: 30%;
-  height: 40%;
-  display: flex;
-}
-.card {
-  height: 130px;
-  width: 130px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.back{
-  position: absolute;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
   width: 100%;
   height: 100%;
+
 }
+.card {
+  border: 1px solid black;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 60%;
+  height: 63%;
+  border-radius: 5px;
+}
+.front {
+  background: var(--lightColor);
+  color: var(--textColor);
+  font-size: calc(8px + 1vw);
+  position: relative;
+}
+.back {
+  width: 60%;
+  height: 63%;
+  border: 1px solid red;
+  object-fit: cover;
+
+}
+.front img{
+  object-fit: contain;
+}
+.back img {
+  object-fit: cover;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*FOOTER*/
+.footer{
+  background: var(--lightColor);
+  width: 100%;
+  height: 5%;
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  gap: 2%;
+  justify-content: center;
+  align-items: center;
+  color: var(--textColor);
+  font-size: calc(8px + 1vw);
+}
+a{
+  text-decoration: none;
+  color: var(--textColor);
+  font-size: calc(8px + 1vw);
+  transition: 1s;
+}
+a:hover{
+  font-size: calc(10px + 1vw);
+  color: var(--highlightColor)
+}
+
