@@ -1,17 +1,34 @@
 import Cards from './Cards.jsx'
 import  Header  from './Header'
 import Footer from './Footer.jsx';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function App() {
+  const [score, setScore] = useState(0)
+  const [seconds, setSeconds] = useState(59);
+  const [minutes, setMinutes] = useState(0);
+  const [time, setTime] = useState(false)
+  
 
-  const [counter, setCounter] = useState(0);
+  useEffect(() => {
+      if(time) {
+        let timer = setInterval(() => {
+          setSeconds(seconds -1)
+
+          if(seconds === 0){
+              setMinutes(minutes -1)
+              setSeconds(59)
+          }
+      }, 1000)
+      return () => clearInterval(timer)
+      }
+  }, [seconds, time])
 
 
   return (
     <div className='mainCont'>
-    <Header></Header>
-    <Cards></Cards>
+    <Header score={score} seconds={seconds} minutes={minutes}></Header>
+    <Cards score={score} setScore={setScore} setTime={setTime}></Cards>
     <Footer></Footer>
     </div>
   )
