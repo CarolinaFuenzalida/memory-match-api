@@ -1,6 +1,22 @@
 import { useState, useEffect } from "react"; 
 
-const Header = ({score, seconds, minutes}) => {
+const Header = ({score}) => {
+    const [seconds, setSeconds] = useState(59);
+    const [minutes, setMinutes] = useState(1);
+  
+    
+  
+    useEffect(() => {
+        let timer = setInterval(() => {
+        setSeconds(seconds -1)
+  
+        if(seconds === 0){
+            setMinutes(minutes -1)
+            setSeconds(59)
+        }
+    }, 1000)
+    return () => clearInterval(timer)    
+    }, [seconds])
 
     return (
         <div id="header">

@@ -2,9 +2,10 @@ import React from 'react';
 import { useState, useEffect} from 'react'
 import "./index.css"
 import { shuffleCards, duplicateCards, compareCards } from './logic';
+import Swal from 'sweetalert2'
 
 
-const Cards = ({score, setScore, setTime}) => {
+const Cards = ({score, setScore}) => {
 
 const [result, setResult] = useState([]);
 const [poke, setPoke] = useState([]);
@@ -61,7 +62,11 @@ const addFlip = (e) => {
                 selectedCards.length= 0;
         }  
     }  if (flippedCards.length === poke.length) {
-        alert("taweno");
+        Swal.fire({
+            imageUrl: 'https://i.pinimg.com/originals/c4/e9/fb/c4e9fb748d0d0e284c744dea3da89a7f.gif',
+            imageHeight: 200,
+            imageWidth: 200,
+        })
     } 
 }
 
