@@ -20,5 +20,5 @@ Una vez finalizado el prototipo, se realizó un componente base para comenzar a 
 
 ![memory2](https://user-images.githubusercontent.com/108352521/215005698-e352c578-c95a-49bc-827b-a972c8c15e46.png)
 
-[Link a Web App] (https://memory-match-api.netlify.app/)
+[Link a Web App](https://memory-match-api.netlify.app/)
 
