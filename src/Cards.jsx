@@ -10,13 +10,13 @@ const Cards = ({score, setScore}) => {
 const [result, setResult] = useState([]);
 const [poke, setPoke] = useState([]);
 const [load, setLoad] = useState(false);
-
+const [recall, setRecall] = useState(0);
 const arr = [];
 const selectedCards = [];
 let finalArr = poke;
 let URL = `https://pokeapi.co/api/v2/pokemon?limit=6&offset=${Math.floor(Math.random()* 500)}` 
 
-// CÓMO HACER QUE LA PAGINA ESPERE AL FETCH PARA CARGAR?????????!!!?!?!??
+
 useEffect(() => {
     fetch(URL) 
     .then((response) => response.json())
@@ -28,7 +28,26 @@ useEffect(() => {
             setPoke(arr)
         })  
     ))
-}, []);
+}, [recall]);
+
+useEffect(() => {
+    if(score === 6) {
+        Swal.fire({
+            imageUrl: 'https://i.pinimg.com/originals/c4/e9/fb/c4e9fb748d0d0e284c744dea3da89a7f.gif',
+            imageHeight: 200,
+            imageWidth: 200,
+            title: '¡Felicidades! Los has atrapado a todos'
+        }).then(result => {
+            setRecall(recall +1)
+            if(result.isConfirmed){
+                setScore(0)
+                arr.length = 0;
+                selectedCards.length = 0;
+                setLoad(false)
+            }
+        })
+    }
+}, [score])
 
 const loadCards = () => {
     duplicateCards(finalArr)
@@ -46,7 +65,6 @@ const addFlip = (e) => {
     console.log("elegida:", selected,"array:", selectedCards);
     const flipCards = document.querySelectorAll('.flip');
     const flippedCards = document.querySelectorAll('.flipped');
-     //console.log(flipCards[0].getAttribute('ind'))
     if (selectedCards.length === 2){
         if (selectedCards[0].getAttribute("ind") === selectedCards[1].getAttribute("ind")){
             selectedCards.forEach(card => {
@@ -61,13 +79,7 @@ const addFlip = (e) => {
                 })
                 selectedCards.length= 0;
         }  
-    }  if (flippedCards.length === poke.length) {
-        Swal.fire({
-            imageUrl: 'https://i.pinimg.com/originals/c4/e9/fb/c4e9fb748d0d0e284c744dea3da89a7f.gif',
-            imageHeight: 200,
-            imageWidth: 200,
-        })
-    } 
+    }   
 }
 
     return (
