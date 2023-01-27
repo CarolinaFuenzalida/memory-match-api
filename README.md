@@ -15,3 +15,10 @@ Antes de comentar la aplicación, se realizó un prototipo en Figma para darnos 
 Una vez finalizado el prototipo, se realizó un componente base para comenzar a consumir la data desde la API con fetch. Cuando la data se obtuvo en la pantalla, se aplicaron componentes y lógica para que se mostraran solo 6 pokemon diferentes duplicados y al azar cada vez que se recargara el juego(definidos dentro de un pool de 500) para dar una variedad de opciones al usuario final que juegue más de una vez. Hecho lo anterior, se procedió a trabajar en estilos y las otras funciones de la app.
 
 ### Acceso a la aplicación
+
+![memory1](https://user-images.githubusercontent.com/108352521/215005802-02058097-241f-491a-936b-09b72c3d99d4.png)
+
+![memory2](https://user-images.githubusercontent.com/108352521/215005698-e352c578-c95a-49bc-827b-a972c8c15e46.png)
+
+[Link a Web App] (https://memory-match-api.netlify.app/)
+
